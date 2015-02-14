@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css" charset="utf-8">
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+  </head>
+  <body>
+    <p>Drag the paper into the folder:</p>
+    <div>
+      <div class="paper draggable"></div>
+      <div class="folder droppable"></div>
+    </div>
+    <div class="part2 hidden">
+      <h3 class="yay">You're a total pro!</h3>
+      <p>These skills will come in handy!</p>
+    </div>
+    <script>
+      $(function() {
+        $( ".paper.draggable" ).draggable();
+        $( ".folder.droppable" ).droppable({
+          over: function( event, ui ) {
+            $(this).addClass('over');
+          },
+          drop: function( event, ui ) {
+            $(".paper").addClass('hidden');
+            $(this).removeClass('over');
+            $('.part2').removeClass('hidden');
+          }
+        });
+      });
+      </script>
+  </body>
+</html>
